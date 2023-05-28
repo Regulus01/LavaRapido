@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Lavagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .block {
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            .block h2 {
+                margin-top: 0;
+            }
+
+        .button-group {
+            text-align: center;
+        }
+
+            .button-group button {
+                padding: 8px 20px;
+                margin: 0 10px;
+                background-color: #4CAF50;
+                color: #fff;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+
+                .button-group button:hover {
+                    background-color: #45a049;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Lavagens</h1>
+
+        <div class="block">
+            <h2>Cadastro de Funcionário</h2>
+            <div class="button-group">
+                <button onclick="window.location.href = '/funcionarios';">Cadastrar Funcionário</button>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2>Cadastro de Veículos</h2>
+            <div class="button-group">
+                <button onclick="window.location.href = '/veiculo';">Cadastrar Veículo</button>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2>Registro de Lavagem</h2>
+            <div class="button-group">
+                <button onclick="window.location.href = '/registroDaLavagems';">Registrar Lavagem</button>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2>Relatório de Lavagens</h2>
+            <div class="button-group">
+                <button onclick="window.location.href = '/registroDaLavagems/Relatorio';">Ver Relatório</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

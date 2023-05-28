@@ -1,0 +1,80 @@
+﻿@model MeSegundaUnidade.registroDaLavagem
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>registroDaLavagem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cpfDoFuncionario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpfDoFuncionario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datadalavagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datadalavagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorcobrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorcobrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.funcionario.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.funcionario.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.veiculo.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.veiculo.placa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

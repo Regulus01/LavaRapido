@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dgmsvi72o1j1fpnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="funcionario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="datadenascimento" Type="DateTimeOffset" Precision="7" />
+    <Property Name="cpf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="registroDaLavagems" Relationship="Self.FK__registroD__idfun__60A75C0F" FromRole="funcionario" ToRole="registroDaLavagem" />
+    <Property Name="Disponivel" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="registroDaLavagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="cpfDoFuncionario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="datadalavagem" Type="DateTimeOffset" Precision="7" />
+    <Property Name="hora" Type="Time" Precision="7" />
+    <Property Name="tipo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="valorcobrado" Type="Double" />
+    <Property Name="idfuncionario" Type="Guid" />
+    <Property Name="idveiculo" Type="Guid" />
+    <NavigationProperty Name="funcionario" Relationship="Self.FK__registroD__idfun__60A75C0F" FromRole="registroDaLavagem" ToRole="funcionario" />
+    <NavigationProperty Name="veiculo" Relationship="Self.FK__registroD__idvei__619B8048" FromRole="registroDaLavagem" ToRole="veiculo" />
+  </EntityType>
+  <EntityType Name="veiculo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="placa" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="marca" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="modelo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ano" Type="Int32" />
+    <NavigationProperty Name="registroDaLavagems" Relationship="Self.FK__registroD__idvei__619B8048" FromRole="veiculo" ToRole="registroDaLavagem" />
+    <Property Name="EmLavagem" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK__registroD__idfun__60A75C0F">
+    <End Role="funcionario" Type="Self.funcionario" Multiplicity="0..1" />
+    <End Role="registroDaLavagem" Type="Self.registroDaLavagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="registroDaLavagem">
+        <PropertyRef Name="idfuncionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__registroD__idvei__619B8048">
+    <End Role="veiculo" Type="Self.veiculo" Multiplicity="0..1" />
+    <End Role="registroDaLavagem" Type="Self.registroDaLavagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="veiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="registroDaLavagem">
+        <PropertyRef Name="idveiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dgmsvi72o1j1fpnEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="funcionarios" EntityType="Self.funcionario" />
+    <EntitySet Name="registroDaLavagems" EntityType="Self.registroDaLavagem" />
+    <EntitySet Name="veiculoes" EntityType="Self.veiculo" />
+    <AssociationSet Name="FK__registroD__idfun__60A75C0F" Association="Self.FK__registroD__idfun__60A75C0F">
+      <End Role="funcionario" EntitySet="funcionarios" />
+      <End Role="registroDaLavagem" EntitySet="registroDaLavagems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__registroD__idvei__619B8048" Association="Self.FK__registroD__idvei__619B8048">
+      <End Role="veiculo" EntitySet="veiculoes" />
+      <End Role="registroDaLavagem" EntitySet="registroDaLavagems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dgmsvi72o1j1fpnModelStoreContainer" CdmEntityContainer="dgmsvi72o1j1fpnEntities">
+    <EntitySetMapping Name="funcionarios">
+      <EntityTypeMapping TypeName="dgmsvi72o1j1fpnModel.funcionario">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="Disponivel" ColumnName="Disponivel" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="datadenascimento" ColumnName="datadenascimento" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="endereco" ColumnName="endereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registroDaLavagems">
+      <EntityTypeMapping TypeName="dgmsvi72o1j1fpnModel.registroDaLavagem">
+        <MappingFragment StoreEntitySet="registroDaLavagem">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cpfDoFuncionario" ColumnName="cpfDoFuncionario" />
+          <ScalarProperty Name="datadalavagem" ColumnName="datadalavagem" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="valorcobrado" ColumnName="valorcobrado" />
+          <ScalarProperty Name="idfuncionario" ColumnName="idfuncionario" />
+          <ScalarProperty Name="idveiculo" ColumnName="idveiculo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="veiculoes">
+      <EntityTypeMapping TypeName="dgmsvi72o1j1fpnModel.veiculo">
+        <MappingFragment StoreEntitySet="veiculo">
+          <ScalarProperty Name="EmLavagem" ColumnName="EmLavagem" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

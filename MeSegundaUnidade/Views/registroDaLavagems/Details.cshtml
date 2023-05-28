@@ -1,0 +1,74 @@
+﻿@model MeSegundaUnidade.registroDaLavagem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>registroDaLavagem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cpfDoFuncionario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpfDoFuncionario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datadalavagem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datadalavagem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorcobrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorcobrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.funcionario.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.funcionario.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.veiculo.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.veiculo.placa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

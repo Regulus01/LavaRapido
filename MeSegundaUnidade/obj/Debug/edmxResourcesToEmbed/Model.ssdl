@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dgmsvi72o1j1fpnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="funcionario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="nome" Type="varchar" MaxLength="100" />
+    <Property Name="datadenascimento" Type="datetimeoffset" Precision="7" />
+    <Property Name="cpf" Type="varchar" MaxLength="11" />
+    <Property Name="endereco" Type="varchar" MaxLength="100" />
+    <Property Name="Disponivel" Type="bit" />
+  </EntityType>
+  <EntityType Name="registroDaLavagem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="cpfDoFuncionario" Type="varchar" MaxLength="100" />
+    <Property Name="datadalavagem" Type="datetimeoffset" Precision="7" />
+    <Property Name="hora" Type="time" Precision="7" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+    <Property Name="valorcobrado" Type="float" />
+    <Property Name="idfuncionario" Type="uniqueidentifier" />
+    <Property Name="idveiculo" Type="uniqueidentifier" />
+    <Property Name="EmLavagem" Type="bit" />
+  </EntityType>
+  <EntityType Name="veiculo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="placa" Type="varchar" MaxLength="7" />
+    <Property Name="marca" Type="varchar" MaxLength="100" />
+    <Property Name="modelo" Type="varchar" MaxLength="100" />
+    <Property Name="ano" Type="int" />
+    <Property Name="EmLavagem" Type="bit" />
+  </EntityType>
+  <Association Name="FK__registroD__idfun__60A75C0F">
+    <End Role="funcionario" Type="Self.funcionario" Multiplicity="0..1" />
+    <End Role="registroDaLavagem" Type="Self.registroDaLavagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcionario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="registroDaLavagem">
+        <PropertyRef Name="idfuncionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__registroD__idvei__619B8048">
+    <End Role="veiculo" Type="Self.veiculo" Multiplicity="0..1" />
+    <End Role="registroDaLavagem" Type="Self.registroDaLavagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="veiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="registroDaLavagem">
+        <PropertyRef Name="idveiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dgmsvi72o1j1fpnModelStoreContainer">
+    <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="registroDaLavagem" EntityType="Self.registroDaLavagem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="veiculo" EntityType="Self.veiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__registroD__idfun__60A75C0F" Association="Self.FK__registroD__idfun__60A75C0F">
+      <End Role="funcionario" EntitySet="funcionario" />
+      <End Role="registroDaLavagem" EntitySet="registroDaLavagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__registroD__idvei__619B8048" Association="Self.FK__registroD__idvei__619B8048">
+      <End Role="veiculo" EntitySet="veiculo" />
+      <End Role="registroDaLavagem" EntitySet="registroDaLavagem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
